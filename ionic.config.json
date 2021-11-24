@@ -1,0 +1,7 @@
+{
+  "name": "Dorsetteam7ticketing",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
