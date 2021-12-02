@@ -9,4 +9,13 @@ export class Tab1Page {
 
   constructor() {}
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  More(){
+    console.log('yes');
+  }
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  Less(){
+    console.log('no');
+  }
+
 }
