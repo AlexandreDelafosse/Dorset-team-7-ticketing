@@ -18,4 +18,22 @@ export class Tab1Page {
     console.log('no');
   }
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  public Shang() {
+
+    document.getElementById('myDIV2').style.display = 'block';
+  }
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  public ST() {
+
+    document.getElementById('myDIV4').style.display = 'block';
+  }
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  public Flat() {
+
+    document.getElementById('myDIV6').style.display = 'block';
+  }
+
 }
