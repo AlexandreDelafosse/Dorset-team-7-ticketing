@@ -9,9 +9,4 @@ export class Tab3Page {
 
   constructor() { }
 
-  public onButtonClick() {
-
-    document.getElementById("myDIV2").style.display = "block";
-  }
-
 }
