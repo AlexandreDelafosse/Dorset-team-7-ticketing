@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor() { }
+
+  public onButtonClick() {
+
+    document.getElementById("myDIV2").style.display = "block";
+  }
 
 }
