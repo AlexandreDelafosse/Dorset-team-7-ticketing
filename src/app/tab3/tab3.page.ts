@@ -11,7 +11,7 @@ export class Tab3Page {
 
   public myFunction() {
 
-    alert("I am an alert box!");
+    alert("Yours seats have been booked ! You will receive an email with a QR code of your seats");
   }
 
 }
