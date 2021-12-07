@@ -49,13 +49,15 @@
             <h1>Adult</h1>
             <ion-row class="left">
 
-              <ion-button color="medium" size="small" (click)="Less()">
+              <ion-button color="medium" size="small" class="add-btn" clear (click)="decrementQty()">
                 <ion-icon name="remove-circle-outline"></ion-icon>
               </ion-button>
 
-              <p>0</p>
+              <span>{{item_qty}}</span>
 
-              <ion-button color="medium" size="small" (click)="More()">
+              <!-- <input type="text" name="qty" id="1" value="0" class="input-filed"> -->
+
+              <ion-button color="medium" size="small" class="add-btn" clear (click)="incrementQty()">
                 <ion-icon name="add-circle-outline"></ion-icon>
               </ion-button>
             </ion-row>
@@ -65,19 +67,22 @@
             <h1>Child</h1>
             <ion-row class="left">
 
-              <ion-button color="medium" size="small" (click)="Less()">
+              <ion-button color="medium" size="small" class="less">
                 <ion-icon name="remove-circle-outline"></ion-icon>
               </ion-button>
 
               <p>0</p>
 
-              <ion-button color="medium" size="small" (click)="More()">
+              <ion-button color="medium" size="small" class="more">
                 <ion-icon name="add-circle-outline"></ion-icon>
               </ion-button>
             </ion-row>
           </ion-row>
 
-          <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Shang()" id="myDIV2">Continue</ion-button>
+          <ion-tab-button tab="tab2">
+            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Shang()" id="myDIV2">
+              Continue</ion-button>
+          </ion-tab-button>
 
         </ion-grid>
       </ion-card-content>
@@ -120,13 +125,13 @@
             <h1>Adult</h1>
             <ion-row class="left">
 
-              <ion-button color="medium" size="small" (click)="Less()">
+              <ion-button color="medium" size="small" class="less">
                 <ion-icon name="remove-circle-outline"></ion-icon>
               </ion-button>
 
               <p>0</p>
 
-              <ion-button color="medium" size="small" (click)="More()">
+              <ion-button color="medium" size="small" class="more">
                 <ion-icon name="add-circle-outline"></ion-icon>
               </ion-button>
             </ion-row>
@@ -136,19 +141,22 @@
             <h1>Child</h1>
             <ion-row class="left">
 
-              <ion-button color="medium" size="small" (click)="Less()">
+              <ion-button color="medium" size="small" class="less">
                 <ion-icon name="remove-circle-outline"></ion-icon>
               </ion-button>
 
               <p>0</p>
 
-              <ion-button color="medium" size="small" (click)="More()">
+              <ion-button color="medium" size="small" class="more">
                 <ion-icon name="add-circle-outline"></ion-icon>
               </ion-button>
             </ion-row>
           </ion-row>
 
-          <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="ST()" id="myDIV4">Continue</ion-button>
+          <ion-tab-button tab="tab2">
+            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="ST()" id="myDIV4">
+              Continue</ion-button>
+          </ion-tab-button>
 
         </ion-grid>
       </ion-card-content>
@@ -191,13 +199,13 @@
             <h1>Adult</h1>
             <ion-row class="left">
 
-              <ion-button color="medium" size="small" (click)="Less()">
+              <ion-button color="medium" size="small" class="less">
                 <ion-icon name="remove-circle-outline"></ion-icon>
               </ion-button>
 
               <p>0</p>
 
-              <ion-button color="medium" size="small" (click)="More()">
+              <ion-button color="medium" size="small" class="more">
                 <ion-icon name="add-circle-outline"></ion-icon>
               </ion-button>
             </ion-row>
@@ -207,19 +215,22 @@
             <h1>Child</h1>
             <ion-row class="left">
 
-              <ion-button color="medium" size="small" (click)="Less()">
+              <ion-button color="medium" size="small" class="less">
                 <ion-icon name="remove-circle-outline"></ion-icon>
               </ion-button>
 
               <p>0</p>
 
-              <ion-button color="medium" size="small" (click)="More()">
+              <ion-button color="medium" size="small" class="more">
                 <ion-icon name="add-circle-outline"></ion-icon>
               </ion-button>
             </ion-row>
           </ion-row>
 
-          <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Flat()" id="myDIV6">Continue</ion-button>
+          <ion-tab-button tab="tab2">
+            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Flat()" id="myDIV6">
+              Continue</ion-button>
+          </ion-tab-button>
 
         </ion-grid>
       </ion-card-content>
