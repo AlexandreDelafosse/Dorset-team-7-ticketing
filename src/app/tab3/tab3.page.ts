@@ -9,4 +9,8 @@ export class Tab3Page {
 
   constructor() { }
 
+   myFunction() {
+  alert("I am an alert box!");
+}
+
 }
