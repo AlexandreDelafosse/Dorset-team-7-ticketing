@@ -9,4 +9,8 @@ export class Tab2Page {
 
   constructor() {}
 
+  public confirming() {
+    window.location.href='http://localhost:8100/tabs/tab3';
+  }
+
 }
