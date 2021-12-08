@@ -13,9 +13,48 @@
   </app-explore-container>
 
   <ion-content fullscreen>
+    <div id="book">
+      <ion-row class="place">
+        <h1 class="titlePlace">Adult</h1>
+        <ion-row class="left place">
+
+          <ion-button color="medium" size="small" class="add-btn" clear (click)="decrementAdultQty()">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-button>
+          <span class="nbPlace">{{item_adult_qty}}</span>
+
+          <!-- <input type="text" name="qty" id="1" value="0" class="input-filed"> -->
+
+          <ion-button color="medium" size="small" class="add-btn" clear (click)="incrementAdultQty()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-row>
+      </ion-row>
+
+      <ion-row class="place">
+        <h1 class="titlePlace">Child</h1>
+        <ion-row class="left place">
+
+          <ion-button color="medium" size="small" class="less" (click)="decrementChildQty()">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-button>
+
+          <span class="nbPlace">{{item_child_qty}}</span>
+
+          <ion-button color="medium" size="small" class="more" (click)="incrementChildQty()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-row>
+      </ion-row>
+
+      <ion-tab-button tab="tab2">
+        <ion-button color="medium" id="continue">
+          Continue</ion-button>
+      </ion-tab-button>
+    </div>
     <ion-card class="movies" *ngFor="let movie of movies">
       <ion-card-content>
-        <h1>{{movie.titre}}  ({{movie.year}})</h1>
+        <h1>{{movie.titre}} ({{movie.year}})</h1>
         <p class="director">Director : {{movie.director}}</p>
         <ion-grid>
           <ion-row>
@@ -23,45 +62,6 @@
               <ion-button color="medium" (click)="Shang()" id="myDIV">{{movieHour}}</ion-button>
             </ion-col>
           </ion-row>
-
-          <ion-row>
-            <h1>Adult</h1>
-            <ion-row class="left">
-
-              <ion-button color="medium" size="small" class="add-btn" clear (click)="decrementQty()">
-                <ion-icon name="remove-circle-outline"></ion-icon>
-              </ion-button>
-
-              <span>{{item_qty}}</span>
-
-              <!-- <input type="text" name="qty" id="1" value="0" class="input-filed"> -->
-
-              <ion-button color="medium" size="small" class="add-btn" clear (click)="incrementQty()">
-                <ion-icon name="add-circle-outline"></ion-icon>
-              </ion-button>
-            </ion-row>
-          </ion-row>
-
-          <ion-row>
-            <h1>Child</h1>
-            <ion-row class="left">
-
-              <ion-button color="medium" size="small" class="less">
-                <ion-icon name="remove-circle-outline"></ion-icon>
-              </ion-button>
-
-              <p>0</p>
-
-              <ion-button color="medium" size="small" class="more">
-                <ion-icon name="add-circle-outline"></ion-icon>
-              </ion-button>
-            </ion-row>
-          </ion-row>
-
-          <ion-tab-button tab="tab2">
-            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Shang()" id="myDIV2">
-              Continue</ion-button>
-          </ion-tab-button>
 
         </ion-grid>
       </ion-card-content>

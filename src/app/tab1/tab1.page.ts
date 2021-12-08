@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { AngularFirestore } from "@angular/fire/compat/firestore/"
+import {
+  Component
+} from '@angular/core';
+import {
+  AngularFirestore
+} from "@angular/fire/compat/firestore/"
 
 @Component({
   selector: 'app-tab1',
@@ -7,59 +11,67 @@ import { AngularFirestore } from "@angular/fire/compat/firestore/"
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+  item_adult_qty: number;
+  item_child_qty: number;
   item_qty: number;
-  movieName:string;
-  movieLink:string;
-  movies:any[];
+  movies: any[];
 
   constructor(public firestore: AngularFirestore) {
 
     this.onGetMovies()
+    this.item_adult_qty = 0;
+    this.item_qty = 0;
+    this.item_child_qty = 0;
 
   }
 
   // Get the movies from the database
-  onGetMovies(){
+  onGetMovies() {
     this.firestore.collection('movies').valueChanges()
-    .subscribe(response => {
-      this.movies = response;
-      console.log(this.movies)
-    })
+      .subscribe(response => {
+        this.movies = response;
+        console.log(this.movies)
+      })
   }
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   public Shang() {
-
-    document.getElementById('myDIV2').style.display = 'block';
+    document.getElementById('book').style.display = 'block';
   }
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  public ST() {
+  incrementAdultQty() {
 
-    document.getElementById('myDIV4').style.display = 'block';
-  }
-
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  public Flat() {
-
-    document.getElementById('myDIV6').style.display = 'block';
-  }
-
-  incrementQty(){
-    this.item_qty += 1;
-    console.log(this.item_qty + 1);
+    if (this.item_adult_qty < 5  && this.item_qty < 5) {
+      this.item_adult_qty += 1;
+      this.item_qty += 1;
     }
+  }
 
-    //decrements item
+  //decrements item
 
-    decrementQty(){
-    if(this.item_qty-1 < 1){
-      this.item_qty = 1;
-    }
-    else{
+  decrementAdultQty() {
+
+    if (this.item_adult_qty > 0) {
+      this.item_adult_qty -= 1;
       this.item_qty -= 1;
     }
+  }
+
+  incrementChildQty() {
+
+    if (this.item_child_qty < 5  && this.item_qty < 5) {
+      this.item_child_qty += 1;
+      this.item_qty += 1;
     }
+  }
+
+  //decrements item
+
+  decrementChildQty() {
+
+    if (this.item_child_qty > 0) {
+      this.item_child_qty -= 1;
+      this.item_qty -= 1;
+    }
+  }
 
 }

@@ -1,25 +1,35 @@
-.shang, .st, .flat
-{
-  width: 90%;
-  padding-left: 10%;
-  padding-top: 10%;
-}
-
 .left
 {
   position: relative;
   left: 50%;
 }
 
-p
-{
-  padding-top: 4%;
-  font-size: 20px;
-}
-
 .director {
   font-size: 16px;
   padding-top: 0;
+}
+
+#book {
+  display: none;
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 40%;
+  width: 100vw;
+  background-color: lightgrey;
+}
+
+.place {
+  align-items: center;
+}
+
+.nbPlace {
+  margin: 0 5px;
+}
+
+.titlePlace {
+  margin-left: 10px;
 }
 
 // input
