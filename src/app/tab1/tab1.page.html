@@ -8,7 +8,6 @@
 
 <ion-content [fullscreen]="true">
 
-
   <app-explore-container name="Tab 1 page">
 
   </app-explore-container>
@@ -17,49 +16,73 @@
     <ion-card class="movies">
       <img class="shang" src="./assets/icon/Shang-Chi-Movie-Poster-608x900.jpg" />
       <ion-card-content>
+        <h1>Shang-Chi</h1>
         <ion-grid>
           <ion-row>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">10:00</ion-button>
+              <ion-button color="medium" (click)="Shang()" id="myDIV">10:00</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">11:30</ion-button>
+              <ion-button color="medium" (click)="Shang()" id="myDIV">11:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">14:30</ion-button>
+              <ion-button color="medium" (click)="Shang()" id="myDIV">14:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">17:30</ion-button>
+              <ion-button color="medium" (click)="Shang()" id="myDIV">17:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">20:00</ion-button>
+              <ion-button color="medium" (click)="Shang()" id="myDIV">20:00</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">22:00</ion-button>
+              <ion-button color="medium" (click)="Shang()" id="myDIV">22:00</ion-button>
             </ion-col>
           </ion-row>
 
           <ion-row>
             <h1>Adult</h1>
-            <ion-icon name="remove-circle-outline"></ion-icon>
-            <p>0</p>
-            <ion-icon name="add-circle-outline"></ion-icon>
+            <ion-row class="left">
+
+              <ion-button color="medium" size="small" class="add-btn" clear (click)="decrementQty()">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-button>
+
+              <span>{{item_qty}}</span>
+
+              <!-- <input type="text" name="qty" id="1" value="0" class="input-filed"> -->
+
+              <ion-button color="medium" size="small" class="add-btn" clear (click)="incrementQty()">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-row>
           </ion-row>
 
           <ion-row>
-            <h1>Children</h1>
-            <ion-icon name="remove-circle-outline"></ion-icon>
-            <p>0</p>
-            <ion-icon name="add-circle-outline"></ion-icon>
+            <h1>Child</h1>
+            <ion-row class="left">
+
+              <ion-button color="medium" size="small" class="less">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-button>
+
+              <p>0</p>
+
+              <ion-button color="medium" size="small" class="more">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-row>
           </ion-row>
 
-          <ion-button class="next" style="display: none;" expand="block">Continue</ion-button>
+          <ion-tab-button tab="tab2">
+            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Shang()" id="myDIV2">
+              Continue</ion-button>
+          </ion-tab-button>
 
         </ion-grid>
       </ion-card-content>
@@ -68,52 +91,72 @@
     <ion-card class="movies">
       <img class="st" src="./assets/icon/star-wars-the-last-jedi-poster-608x900.jpg" />
       <ion-card-content>
+        <h1>Star Wars</h1>
         <ion-grid>
           <ion-row>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">10:00</ion-button>
+              <ion-button color="medium" (click)="ST()" id="myDIV3">10:00</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">11:30</ion-button>
+              <ion-button color="medium" (click)="ST()" id="myDIV3">11:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">14:30</ion-button>
+              <ion-button color="medium" (click)="ST()" id="myDIV3">14:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">17:30</ion-button>
+              <ion-button color="medium" (click)="ST()" id="myDIV3">17:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">20:00</ion-button>
+              <ion-button color="medium" (click)="ST()" id="myDIV3">20:00</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">22:00</ion-button>
+              <ion-button color="medium" (click)="ST()" id="myDIV3">22:00</ion-button>
             </ion-col>
 
           </ion-row>
 
           <ion-row>
-
             <h1>Adult</h1>
-            <ion-icon name="remove-circle-outline"></ion-icon>
-            <p>0</p>
-            <ion-icon name="add-circle-outline"></ion-icon>
+            <ion-row class="left">
+
+              <ion-button color="medium" size="small" class="less">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-button>
+
+              <p>0</p>
+
+              <ion-button color="medium" size="small" class="more">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-row>
           </ion-row>
 
           <ion-row>
+            <h1>Child</h1>
+            <ion-row class="left">
 
-            <h1>Children</h1>
-            <ion-icon name="remove-circle-outline"></ion-icon>
-            <p>0</p>
-            <ion-icon name="add-circle-outline"></ion-icon>
+              <ion-button color="medium" size="small" class="less">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-button>
+
+              <p>0</p>
+
+              <ion-button color="medium" size="small" class="more">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-row>
           </ion-row>
 
-          <ion-button class="next" style="display: none;" expand="block">Continue</ion-button>
+          <ion-tab-button tab="tab2">
+            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="ST()" id="myDIV4">
+              Continue</ion-button>
+          </ion-tab-button>
 
         </ion-grid>
       </ion-card-content>
@@ -122,50 +165,72 @@
     <ion-card class="movies">
       <img class="flat" src="./assets/icon/flatliners-poster-1506812549-608x900.jpg" />
       <ion-card-content>
+        <h1>Flatliners</h1>
         <ion-grid>
           <ion-row>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">10:00</ion-button>
+              <ion-button color="medium" (click)="Flat()" id="myDIV5">10:00</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">11:30</ion-button>
+              <ion-button color="medium" (click)="Flat()" id="myDIV5">11:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">14:30</ion-button>
+              <ion-button color="medium" (click)="Flat()" id="myDIV5">14:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">17:30</ion-button>
+              <ion-button color="medium" (click)="Flat()" id="myDIV5">17:30</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">20:00</ion-button>
+              <ion-button color="medium" (click)="Flat()" id="myDIV5">20:00</ion-button>
             </ion-col>
 
             <ion-col>
-              <ion-button color="medium" ng-click="click()">22:00</ion-button>
+              <ion-button color="medium" (click)="Flat()" id="myDIV5">22:00</ion-button>
             </ion-col>
 
           </ion-row>
 
           <ion-row>
             <h1>Adult</h1>
-            <ion-icon name="remove-circle-outline"></ion-icon>
-            <p>0</p>
-            <ion-icon name="add-circle-outline"></ion-icon>
+            <ion-row class="left">
+
+              <ion-button color="medium" size="small" class="less">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-button>
+
+              <p>0</p>
+
+              <ion-button color="medium" size="small" class="more">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-row>
           </ion-row>
 
           <ion-row>
-            <h1>Children</h1>
-            <ion-icon name="remove-circle-outline"></ion-icon>
-            <p>0</p>
-            <ion-icon name="add-circle-outline"></ion-icon>
+            <h1>Child</h1>
+            <ion-row class="left">
+
+              <ion-button color="medium" size="small" class="less">
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-button>
+
+              <p>0</p>
+
+              <ion-button color="medium" size="small" class="more">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-row>
           </ion-row>
 
-          <ion-button class="next" style="display: none;" expand="block">Continue</ion-button>
+          <ion-tab-button tab="tab2">
+            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Flat()" id="myDIV6">
+              Continue</ion-button>
+          </ion-tab-button>
 
         </ion-grid>
       </ion-card-content>
