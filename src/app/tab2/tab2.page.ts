@@ -28,6 +28,11 @@ export class Tab2Page {
     this.maxNbSitTaken = 9
     this.selectSit = []
     this.sitHaveToTake = this.maxNbSitTaken
+    this.hideBar()
+  }
+
+  hideBar() {
+    $('ion-tab-bar').hide()
   }
 
   checkTaken(){
