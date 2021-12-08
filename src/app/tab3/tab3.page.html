@@ -10,22 +10,26 @@
 
     <h1>Resume :</h1>
 
+    <p>Movie : {{selectedMovie}}</p>
+    <p>Hour : {{selectedHour}}</p>
+    <p>Price : {{price}}</p>
+    <p>Seat Taken : <span *ngFor="let seat of place">{{seat}} | </span></p>
     <br>
     <ion-item>
       <ion-label position="stacked">First Name :</ion-label>
-      <ion-input placeholder="First Name"></ion-input>
+      <ion-input placeholder="First Name" [(ngModel)]="firstName"></ion-input>
     </ion-item>
     <br>
     <ion-item>
       <ion-label position="stacked">Last Name :</ion-label>
-      <ion-input placeholder="Last Name"></ion-input>
+      <ion-input placeholder="Last Name" [(ngModel)]="lastName"></ion-input>
     </ion-item>
     <br>
     <ion-item>
       <ion-label position="stacked">Mail Adress :</ion-label>
-      <ion-input placeholder="Mail Adress"></ion-input>
+      <ion-input placeholder="Mail Adress" [(ngModel)]="email"></ion-input>
     </ion-item>
 
-    <ion-button expand="block" (click)="presentAlert()" >Confirm your reservation</ion-button>
+    <ion-button expand="block" (click)="addInfo(); presentAlert()" >Confirm your reservation</ion-button>
 
 </ion-content>

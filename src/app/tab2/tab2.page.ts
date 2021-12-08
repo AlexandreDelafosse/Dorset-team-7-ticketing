@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/compat/firestore/"
 import * as $ from 'jquery'
+import { ResumeService } from '../resume.service';
 
 @Component({
   selector: 'app-tab2',
@@ -18,14 +19,14 @@ export class Tab2Page {
   nbSitTaken: number;
   maxNbSitTaken: number;
   sitHaveToTake: number;
+  resume: any[]
 
-  constructor(public firestore: AngularFirestore) {
+  constructor(public firestore: AngularFirestore, private resumeService: ResumeService) {
 
+    this.getAllInfo()
     this.checkTaken()
-    this.testa()
     this.hundred = [1,2,3,4,5,6,7,8,9,10]
     this.nbSitTaken = 0
-    this.maxNbSitTaken = 9
     this.selectSit = []
     this.sitHaveToTake = this.maxNbSitTaken
     this.hideBar()
@@ -33,6 +34,12 @@ export class Tab2Page {
 
   hideBar() {
     $('ion-tab-bar').hide()
+  }
+
+  getAllInfo() {
+    this.resume = this.resumeService.getAll();
+    console.log(this.resume[0].nbSitTaken)
+    this.maxNbSitTaken = this.resume[0].nbSitTaken
   }
 
   checkTaken(){
@@ -81,27 +88,26 @@ export class Tab2Page {
     })
   }
 
-  testa() {
-    setInterval(function(){
-      console.log(this.reservation)
-    }, 1000)
-  }
-
   toggleClassTest(i) {
     if($("." + i).attr('class') === i + " buttonseat" && this.nbSitTaken < this.maxNbSitTaken) {
       this.nbSitTaken += 1
       this.selectSit.push(i)
+      this.actualizeService()
       this.sitHaveToTake = this.maxNbSitTaken - this.selectSit.length
       $("." + i).removeClass('buttonseat').addClass('selected')
     } else if ($("." + i).attr('class') === i + " selected" && this.nbSitTaken >= 0) {
       this.nbSitTaken -= 1
       $("." + i).removeClass('selected').addClass('buttonseat')
       this.selectSit = this.selectSit.filter(function(f) { return f !== i })
+      this.actualizeService()
       this.sitHaveToTake = this.maxNbSitTaken - this.selectSit.length
     } else {
       console.log('no')
-
     }
+  }
+
+  actualizeService() {
+    this.resumeService.addSitTaken(this.selectSit)
   }
 
 }

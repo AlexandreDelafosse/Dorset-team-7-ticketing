@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/compat/firestore/"
 import * as $ from 'jquery'
+import { ResumeService } from '../resume.service';
 
 @Component({
   selector: 'app-tab1',
@@ -17,7 +18,7 @@ export class Tab1Page {
   selectHour: string;
   isFamilyPromotion: boolean;
 
-  constructor(public firestore: AngularFirestore) {
+  constructor(public firestore: AngularFirestore, private resumeService: ResumeService) {
 
     this.onGetMovies()
     this.item_adult_qty = 0;
@@ -48,6 +49,8 @@ export class Tab1Page {
       this.item_qty += 1;
       this.priceCalc()
       this.familyPromotion()
+      this.actualizeNbPlaceService()
+      this.actualizePriceService()
     }
   }
 
@@ -61,6 +64,8 @@ export class Tab1Page {
       this.price -= 10;
       this.priceCalc()
       this.familyPromotion()
+      this.actualizeNbPlaceService()
+      this.actualizePriceService()
     }
   }
 
@@ -72,6 +77,8 @@ export class Tab1Page {
       this.price += 7;
       this.priceCalc()
       this.familyPromotion()
+      this.actualizeNbPlaceService()
+      this.actualizePriceService()
     }
   }
 
@@ -85,6 +92,8 @@ export class Tab1Page {
       this.price -= 7;
       this.priceCalc()
       this.familyPromotion()
+      this.actualizeNbPlaceService()
+      this.actualizePriceService()
     }
   }
 
@@ -109,5 +118,23 @@ export class Tab1Page {
     document.getElementById('book').style.display = 'block';
     this.selectHour = movieHour
     this.selectMovie = movieTitle
+    this.actualizeMovieService()
+    this.actualizeHourService()
+  }
+
+  actualizeMovieService() {
+    this.resumeService.addMovie(this.selectMovie)
+  }
+
+  actualizeHourService() {
+    this.resumeService.addHour(this.selectHour)
+  }
+
+  actualizeNbPlaceService() {
+    this.resumeService.addNbSitTaken(this.item_qty)
+  }
+
+  actualizePriceService() {
+    this.resumeService.addPrice(this.price)
   }
 }
