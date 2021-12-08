@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from "@angular/fire/compat/firestore/"
 
 @Component({
   selector: 'app-tab1',
@@ -8,8 +9,24 @@ import { Component } from '@angular/core';
 export class Tab1Page {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   item_qty: number;
+  movieName:string;
+  movieLink:string;
+  movies:any[];
 
-  constructor() {}
+  constructor(public firestore: AngularFirestore) {
+
+    this.onGetMovies()
+
+  }
+
+  // Get the movies from the database
+  onGetMovies(){
+    this.firestore.collection('movies').valueChanges()
+    .subscribe(response => {
+      this.movies = response;
+      console.log(this.movies)
+    })
+  }
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
   public Shang() {
