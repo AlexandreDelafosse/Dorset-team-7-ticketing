@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/compat/firestore/"
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-tab1',
@@ -24,6 +25,11 @@ export class Tab1Page {
     this.item_child_qty = 0;
     this.price = 0;
     this.isFamilyPromotion = false;
+    this.hideBar()
+  }
+
+  hideBar() {
+    $('ion-tab-bar').hide()
   }
 
   // Get the movies from the database
