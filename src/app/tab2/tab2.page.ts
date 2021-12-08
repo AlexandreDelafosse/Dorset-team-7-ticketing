@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {
+  Component
+} from '@angular/core';
 
 @Component({
   selector: 'app-tab2',
@@ -7,10 +9,25 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor() { }
 
-  public confirming() {
-    window.location.href='http://localhost:8100/tabs/tab3';
+  public colors() {
+
+    let choix = true;
+    let button = document.getElementById('A1');
+    
+    if (choix == true) {
+      button.style.color = "red";
+      choix = false;
+    } 
+    
+    else {
+      button.style.backgroundColor = "green";
+      choix = true;
+    }
+    
+    console.log('ok')
+    
   }
 
 }
