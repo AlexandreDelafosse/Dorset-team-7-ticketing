@@ -16,6 +16,8 @@ export class Tab1Page {
   item_qty: number;
   price: number;
   movies: any[];
+  selectMovie: string;
+  selectHour: string;
 
   constructor(public firestore: AngularFirestore) {
 
@@ -33,10 +35,6 @@ export class Tab1Page {
         this.movies = response;
         console.log(this.movies)
       })
-  }
-
-  public Shang() {
-    document.getElementById('book').style.display = 'block';
   }
 
   incrementAdultQty() {
@@ -100,4 +98,9 @@ export class Tab1Page {
     document.getElementById('book').style.display = 'none';
   }
 
+  select(movieHour, movieTitle) {
+    document.getElementById('book').style.display = 'block';
+    this.selectHour = movieHour
+    this.selectMovie = movieTitle
+  }
 }

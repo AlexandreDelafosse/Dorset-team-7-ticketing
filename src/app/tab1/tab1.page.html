@@ -17,6 +17,9 @@
       <ion-row id="closeRow">
         <ion-button color="danger" id="close" (click)="closeBook()">X</ion-button>
       </ion-row>
+      <ion-row>
+        <h2 style="margin-left: 10px;">{{selectMovie}} | {{selectHour}}</h2>
+      </ion-row>
       <ion-row class="place">
         <h1 class="titlePlace">Adult</h1>
         <ion-row class="left place">
@@ -54,9 +57,11 @@
         <p id="priceText">Price : {{price}}</p>
       </ion-row>
 
-      <ion-tab-button tab="tab2">
-        <ion-button color="medium">Continue</ion-button>
-      </ion-tab-button>
+      <ion-row>
+        <ion-tab-button tab="tab2">
+          <ion-button color="medium">Continue</ion-button>
+        </ion-tab-button>
+      </ion-row>
     </div>
     <ion-card class="movies" *ngFor="let movie of movies">
       <ion-card-content>
@@ -65,7 +70,7 @@
         <ion-grid>
           <ion-row>
             <ion-col *ngFor="let movieHour of movie.hour">
-              <ion-button color="medium" (click)="Shang()" id="myDIV">{{movieHour}}</ion-button>
+              <ion-button color="medium" (click)="select(movieHour, movie.titre)" id="myDIV">{{movieHour}}</ion-button>
             </ion-col>
           </ion-row>
 
