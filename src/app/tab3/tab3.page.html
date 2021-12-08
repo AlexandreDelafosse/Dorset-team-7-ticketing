@@ -1,16 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Booking page
+      Booking Page
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Booking</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+    <h1>Resume :</h1>
+
+    <br>
+    <ion-item>
+      <ion-label position="stacked">First Name :</ion-label>
+      <ion-input placeholder="First Name"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label position="stacked">Last Name :</ion-label>
+      <ion-input placeholder="Last Name"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label position="stacked">Mail Adress :</ion-label>
+      <ion-input placeholder="Mail Adress"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="presentAlert()" >Block Button</ion-button>
 
 </ion-content>
