@@ -14,6 +14,9 @@
 
   <ion-content fullscreen>
     <div id="book">
+      <ion-row id="closeRow">
+        <ion-button color="danger" id="close" (click)="closeBook()">X</ion-button>
+      </ion-row>
       <ion-row class="place">
         <h1 class="titlePlace">Adult</h1>
         <ion-row class="left place">
@@ -47,9 +50,12 @@
         </ion-row>
       </ion-row>
 
+      <ion-row >
+        <p id="priceText">Price : {{price}}</p>
+      </ion-row>
+
       <ion-tab-button tab="tab2">
-        <ion-button color="medium" id="continue">
-          Continue</ion-button>
+        <ion-button color="medium">Continue</ion-button>
       </ion-tab-button>
     </div>
     <ion-card class="movies" *ngFor="let movie of movies">

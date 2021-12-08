@@ -14,6 +14,7 @@ export class Tab1Page {
   item_adult_qty: number;
   item_child_qty: number;
   item_qty: number;
+  price: number;
   movies: any[];
 
   constructor(public firestore: AngularFirestore) {
@@ -22,7 +23,7 @@ export class Tab1Page {
     this.item_adult_qty = 0;
     this.item_qty = 0;
     this.item_child_qty = 0;
-
+    this.price = 0;
   }
 
   // Get the movies from the database
@@ -43,6 +44,8 @@ export class Tab1Page {
     if (this.item_adult_qty < 5  && this.item_qty < 5) {
       this.item_adult_qty += 1;
       this.item_qty += 1;
+      this.priceCalc()
+      this.familyPromotion()
     }
   }
 
@@ -53,6 +56,9 @@ export class Tab1Page {
     if (this.item_adult_qty > 0) {
       this.item_adult_qty -= 1;
       this.item_qty -= 1;
+      this.price -= 10;
+      this.priceCalc()
+      this.familyPromotion()
     }
   }
 
@@ -61,6 +67,9 @@ export class Tab1Page {
     if (this.item_child_qty < 5  && this.item_qty < 5) {
       this.item_child_qty += 1;
       this.item_qty += 1;
+      this.price += 7;
+      this.priceCalc()
+      this.familyPromotion()
     }
   }
 
@@ -71,7 +80,24 @@ export class Tab1Page {
     if (this.item_child_qty > 0) {
       this.item_child_qty -= 1;
       this.item_qty -= 1;
+      this.price -= 7;
+      this.priceCalc()
+      this.familyPromotion()
     }
+  }
+
+  priceCalc() {
+    this.price = this.item_adult_qty * 10 + this.item_child_qty * 7
+  }
+
+  familyPromotion(){
+    if(this.item_adult_qty === 2 && this.item_child_qty === 2){
+      this.price = 30;
+    }
+  }
+
+  closeBook() {
+    document.getElementById('book').style.display = 'none';
   }
 
 }
