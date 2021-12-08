@@ -15,12 +15,17 @@ export class Tab3Page {
     alert.header = 'Confirmed !';
     alert.message = 'Yours seats have been booked ! You will receive an email with a QR code of your seats';
     alert.buttons = ['OK'];
+    
   
     document.body.appendChild(alert);
     await alert.present();
   
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
+
+    window.location.href='http://localhost:8100/tabs/tab1';
   }
+
+  
 
 }
