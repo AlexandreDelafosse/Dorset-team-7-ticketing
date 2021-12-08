@@ -13,6 +13,13 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-row id="sitInfo">
+    <!-- <p *ngFor="let movie of reservation">
+      <span *ngFor="let mov of movie.sit">{{mov}} | </span>
+    </p> -->
+    <p>Sit take : {{nbSitTaken}} | Have to take : {{sitHaveToTake}}<br></p>
+    <p>Sit take (number) : <span *ngFor='let number of selectSit'> {{number}} |</span></p>
+  </ion-row>
   <ion-row>
     <ion-col class="letterstop">
       <p class="letterstopspace">1</p>
@@ -31,165 +38,75 @@
   <ion-row>
     <ion-col class="col">
       <p>A</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i}}" (click)="toggleClassTest(i)" *ngFor='let i of hundred' value="{{i}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>B</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+10}}" (click)="toggleClassTest(i+10)" *ngFor='let i of hundred' value="{{i+10}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>C</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+20}}" (click)="toggleClassTest(i+20)" *ngFor='let i of hundred' value="{{i+20}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>D</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+30}}" (click)="toggleClassTest(i+30)" *ngFor='let i of hundred' value="{{i+30}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>E</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+40}}" (click)="toggleClassTest(i+40)" *ngFor='let i of hundred' value="{{i+40}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>F</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+50}}" (click)="toggleClassTest(i+50)" *ngFor='let i of hundred' value="{{i+50}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>G</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+60}}" (click)="toggleClassTest(i+60)" *ngFor='let i of hundred' value="{{i+60}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>H</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+70}}" (click)="toggleClassTest(i+70)" *ngFor='let i of hundred' value="{{i+70}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>I</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+80}}" (click)="toggleClassTest(i+80)" *ngFor='let i of hundred' value="{{i+80}}"></button>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col class="col">
       <p>J</p>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
-      <ion-button class="buttonseat"></ion-button>
+      <button class="buttonseat {{i+90}}" (click)="toggleClassTest(i+90)" *ngFor='let i of hundred' value="{{i+90}}"></button>
     </ion-col>
   </ion-row>
 
-  
-<ion-button expand="block"> Confirm your seats please</ion-button>
+
+<ion-button expand="block">Confirm your seats please</ion-button>
 
 
 

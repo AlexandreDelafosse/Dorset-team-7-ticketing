@@ -7,3 +7,29 @@
 .col{
     display: flex;
 }
+
+.buttonseat {
+  width: 30px;
+  height: 30px;
+  margin: 5px 5px;
+  background-color: lightgrey;
+}
+
+.selected {
+  background-color: blue;
+  width: 30px;
+  height: 30px;
+  margin: 5px 5px;
+}
+
+.taken {
+  background-color: grey;
+  width: 30px;
+  height: 30px;
+  margin: 5px 5px;
+}
+
+#sitInfo {
+  display: flex;
+  flex-direction: column;
+}

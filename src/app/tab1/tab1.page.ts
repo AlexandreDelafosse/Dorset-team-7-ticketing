@@ -1,9 +1,5 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  AngularFirestore
-} from "@angular/fire/compat/firestore/"
+import { Component } from '@angular/core';
+import { AngularFirestore } from "@angular/fire/compat/firestore/"
 
 @Component({
   selector: 'app-tab1',
@@ -18,6 +14,7 @@ export class Tab1Page {
   movies: any[];
   selectMovie: string;
   selectHour: string;
+  isFamilyPromotion: boolean;
 
   constructor(public firestore: AngularFirestore) {
 
@@ -26,6 +23,7 @@ export class Tab1Page {
     this.item_qty = 0;
     this.item_child_qty = 0;
     this.price = 0;
+    this.isFamilyPromotion = false;
   }
 
   // Get the movies from the database
@@ -39,7 +37,7 @@ export class Tab1Page {
 
   incrementAdultQty() {
 
-    if (this.item_adult_qty < 5  && this.item_qty < 5) {
+    if (this.item_adult_qty < 5) {
       this.item_adult_qty += 1;
       this.item_qty += 1;
       this.priceCalc()
@@ -62,7 +60,7 @@ export class Tab1Page {
 
   incrementChildQty() {
 
-    if (this.item_child_qty < 5  && this.item_qty < 5) {
+    if (this.item_child_qty < 4) {
       this.item_child_qty += 1;
       this.item_qty += 1;
       this.price += 7;
@@ -89,8 +87,11 @@ export class Tab1Page {
   }
 
   familyPromotion(){
-    if(this.item_adult_qty === 2 && this.item_child_qty === 2){
-      this.price = 30;
+    if(this.item_adult_qty === 2 && this.item_child_qty === 4){
+      this.price = 40;
+      this.isFamilyPromotion = true;
+    } else {
+      this.isFamilyPromotion = false;
     }
   }
 

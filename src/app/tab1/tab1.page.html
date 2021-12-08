@@ -54,11 +54,11 @@
       </ion-row>
 
       <ion-row >
-        <p id="priceText">Price : {{price}}</p>
+        <p id="priceText">Price : {{price}} <span *ngIf="isFamilyPromotion" style="color: rgb(14, 107, 14);">Family promotion !</span></p>
       </ion-row>
 
       <ion-row>
-        <ion-tab-button tab="tab2">
+        <ion-tab-button tab="tab2?movie={{selectMovie}}&hour={{selectHour}}">
           <ion-button color="medium">Continue</ion-button>
         </ion-tab-button>
       </ion-row>
@@ -70,7 +70,7 @@
         <ion-grid>
           <ion-row>
             <ion-col *ngFor="let movieHour of movie.hour">
-              <ion-button color="medium" (click)="select(movieHour, movie.titre)" id="myDIV">{{movieHour}}</ion-button>
+              <ion-button color="medium" (click)="select(movieHour, movie.titre)">{{movieHour}}</ion-button>
             </ion-col>
           </ion-row>
 
