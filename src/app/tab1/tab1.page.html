@@ -13,35 +13,14 @@
   </app-explore-container>
 
   <ion-content fullscreen>
-    <ion-card class="movies">
-      <img class="shang" src="./assets/icon/Shang-Chi-Movie-Poster-608x900.jpg" />
+    <ion-card class="movies" *ngFor="let movie of movies">
       <ion-card-content>
-        <h1>Shang-Chi</h1>
+        <h1>{{movie.titre}}  ({{movie.year}})</h1>
+        <p class="director">Director : {{movie.director}}</p>
         <ion-grid>
           <ion-row>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Shang()" id="myDIV">10:00</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Shang()" id="myDIV">11:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Shang()" id="myDIV">14:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Shang()" id="myDIV">17:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Shang()" id="myDIV">20:00</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Shang()" id="myDIV">22:00</ion-button>
+            <ion-col *ngFor="let movieHour of movie.hour">
+              <ion-button color="medium" (click)="Shang()" id="myDIV">{{movieHour}}</ion-button>
             </ion-col>
           </ion-row>
 
@@ -81,154 +60,6 @@
 
           <ion-tab-button tab="tab2">
             <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Shang()" id="myDIV2">
-              Continue</ion-button>
-          </ion-tab-button>
-
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="movies">
-      <img class="st" src="./assets/icon/star-wars-the-last-jedi-poster-608x900.jpg" />
-      <ion-card-content>
-        <h1>Star Wars</h1>
-        <ion-grid>
-          <ion-row>
-
-            <ion-col>
-              <ion-button color="medium" (click)="ST()" id="myDIV3">10:00</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="ST()" id="myDIV3">11:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="ST()" id="myDIV3">14:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="ST()" id="myDIV3">17:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="ST()" id="myDIV3">20:00</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="ST()" id="myDIV3">22:00</ion-button>
-            </ion-col>
-
-          </ion-row>
-
-          <ion-row>
-            <h1>Adult</h1>
-            <ion-row class="left">
-
-              <ion-button color="medium" size="small" class="less">
-                <ion-icon name="remove-circle-outline"></ion-icon>
-              </ion-button>
-
-              <p>0</p>
-
-              <ion-button color="medium" size="small" class="more">
-                <ion-icon name="add-circle-outline"></ion-icon>
-              </ion-button>
-            </ion-row>
-          </ion-row>
-
-          <ion-row>
-            <h1>Child</h1>
-            <ion-row class="left">
-
-              <ion-button color="medium" size="small" class="less">
-                <ion-icon name="remove-circle-outline"></ion-icon>
-              </ion-button>
-
-              <p>0</p>
-
-              <ion-button color="medium" size="small" class="more">
-                <ion-icon name="add-circle-outline"></ion-icon>
-              </ion-button>
-            </ion-row>
-          </ion-row>
-
-          <ion-tab-button tab="tab2">
-            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="ST()" id="myDIV4">
-              Continue</ion-button>
-          </ion-tab-button>
-
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="movies">
-      <img class="flat" src="./assets/icon/flatliners-poster-1506812549-608x900.jpg" />
-      <ion-card-content>
-        <h1>Flatliners</h1>
-        <ion-grid>
-          <ion-row>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Flat()" id="myDIV5">10:00</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Flat()" id="myDIV5">11:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Flat()" id="myDIV5">14:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Flat()" id="myDIV5">17:30</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Flat()" id="myDIV5">20:00</ion-button>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="medium" (click)="Flat()" id="myDIV5">22:00</ion-button>
-            </ion-col>
-
-          </ion-row>
-
-          <ion-row>
-            <h1>Adult</h1>
-            <ion-row class="left">
-
-              <ion-button color="medium" size="small" class="less">
-                <ion-icon name="remove-circle-outline"></ion-icon>
-              </ion-button>
-
-              <p>0</p>
-
-              <ion-button color="medium" size="small" class="more">
-                <ion-icon name="add-circle-outline"></ion-icon>
-              </ion-button>
-            </ion-row>
-          </ion-row>
-
-          <ion-row>
-            <h1>Child</h1>
-            <ion-row class="left">
-
-              <ion-button color="medium" size="small" class="less">
-                <ion-icon name="remove-circle-outline"></ion-icon>
-              </ion-button>
-
-              <p>0</p>
-
-              <ion-button color="medium" size="small" class="more">
-                <ion-icon name="add-circle-outline"></ion-icon>
-              </ion-button>
-            </ion-row>
-          </ion-row>
-
-          <ion-tab-button tab="tab2">
-            <ion-button color="medium" class="next" style="display: none;" expand="block" (click)="Flat()" id="myDIV6">
               Continue</ion-button>
           </ion-tab-button>
 
