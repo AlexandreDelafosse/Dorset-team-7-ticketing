@@ -37,7 +37,7 @@ export class Tab3Page {
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
 
-    window.location.href='http://localhost:8100/tabs/tab1';
+    window.location.href='/tabs/tab1';
 
   }
 
