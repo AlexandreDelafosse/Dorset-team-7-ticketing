@@ -32,16 +32,20 @@ export class Tab2Page {
     this.hideBar()
   }
 
+  // Hide the ionic tab bar
   hideBar() {
     $('ion-tab-bar').hide()
   }
 
+  // Get all the info from the service
+  // The info from the components before
   getAllInfo() {
     this.resume = this.resumeService.getAll();
     console.log(this.resume[0].nbSitTaken)
     this.maxNbSitTaken = this.resume[0].nbSitTaken
   }
 
+  // Get the seat already booked
   checkTaken(){
     this.firestore.collection('reservation')
       .valueChanges()
@@ -66,28 +70,9 @@ export class Tab2Page {
 
   }
 
-
-  verif(i) {
-    this.sitTaken.forEach(e => {
-      if(i == e) {
-        return true
-      } else {
-        return false
-      }
-    })
-  }
-
-  verifq(i){
-    this.sitTaken.forEach(e => {
-      if(i == e) {
-        console.log('no')
-      } else {
-        this.selectSit.push(i)
-        console.log(this.selectSit)
-      }
-    })
-  }
-
+  // Toggle the class of the seat selected
+  // Get the sit selected
+  // Actualize the data in the service
   toggleClassTest(i) {
     if($("." + i).attr('class') === i + " buttonseat" && this.nbSitTaken < this.maxNbSitTaken) {
       this.nbSitTaken += 1
@@ -106,6 +91,7 @@ export class Tab2Page {
     }
   }
 
+  // Update the data for the sit taken in the service
   actualizeService() {
     this.resumeService.addSitTaken(this.selectSit)
   }

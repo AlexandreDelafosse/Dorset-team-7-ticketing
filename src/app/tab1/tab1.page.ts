@@ -29,6 +29,7 @@ export class Tab1Page {
     this.hideBar()
   }
 
+  // Hide the ionic tab bar
   hideBar() {
     $('ion-tab-bar').hide()
   }
@@ -42,8 +43,8 @@ export class Tab1Page {
       })
   }
 
+  // Increment the number of adult place
   incrementAdultQty() {
-
     if (this.item_adult_qty < 5) {
       this.item_adult_qty += 1;
       this.item_qty += 1;
@@ -54,10 +55,8 @@ export class Tab1Page {
     }
   }
 
-  //decrements item
-
+  // Decrement the number of adult place
   decrementAdultQty() {
-
     if (this.item_adult_qty > 0) {
       this.item_adult_qty -= 1;
       this.item_qty -= 1;
@@ -69,9 +68,9 @@ export class Tab1Page {
     }
   }
 
+  // Increment the number of child place
   incrementChildQty() {
-
-    if (this.item_child_qty < 4) {
+    if (this.item_child_qty < 4 && this.item_adult_qty > 0) {
       this.item_child_qty += 1;
       this.item_qty += 1;
       this.price += 7;
@@ -82,10 +81,8 @@ export class Tab1Page {
     }
   }
 
-  //decrements item
-
+  // Increment the number of child place
   decrementChildQty() {
-
     if (this.item_child_qty > 0) {
       this.item_child_qty -= 1;
       this.item_qty -= 1;
@@ -97,10 +94,16 @@ export class Tab1Page {
     }
   }
 
+  // Calcul of the price
   priceCalc() {
+    if(this.item_adult_qty === 0 ) {
+      this.item_child_qty = 0
+      this.item_qty = 0
+    }
     this.price = this.item_adult_qty * 10 + this.item_child_qty * 7
   }
 
+  // Check if there is the familly promotion
   familyPromotion(){
     if(this.item_adult_qty === 2 && this.item_child_qty === 4){
       this.price = 40;
@@ -110,10 +113,13 @@ export class Tab1Page {
     }
   }
 
+  // Close the pop-up for choosing number of seat
   closeBook() {
     document.getElementById('book').style.display = 'none';
   }
 
+  // Get the movie and the hour selected
+  // And update them to the service "Resume"
   select(movieHour, movieTitle) {
     document.getElementById('book').style.display = 'block';
     this.selectHour = movieHour
@@ -122,18 +128,22 @@ export class Tab1Page {
     this.actualizeHourService()
   }
 
+  // Update the data for the movie in the service
   actualizeMovieService() {
     this.resumeService.addMovie(this.selectMovie)
   }
 
+  // Update the data for the hour in the service
   actualizeHourService() {
     this.resumeService.addHour(this.selectHour)
   }
 
+  // Update the data for the number of place in the service
   actualizeNbPlaceService() {
     this.resumeService.addNbSitTaken(this.item_qty)
   }
 
+  // Update the data for the price in the service
   actualizePriceService() {
     this.resumeService.addPrice(this.price)
   }
