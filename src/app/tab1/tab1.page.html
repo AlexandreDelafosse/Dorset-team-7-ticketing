@@ -65,6 +65,7 @@
     </div>
     <ion-card class="movies" *ngFor="let movie of movies">
       <ion-card-content>
+        <img src="{{movie.img}}" alt="movie" width="100%">
         <h1>{{movie.titre}} ({{movie.year}})</h1>
         <p class="director">Director : {{movie.director}}</p>
         <ion-grid>

@@ -13,6 +13,7 @@ export class Tab1Page {
   item_child_qty: number;
   item_qty: number;
   price: number;
+  img: string
   movies: any[];
   selectMovie: string;
   selectHour: string;
@@ -40,7 +41,6 @@ export class Tab1Page {
     this.firestore.collection('movies').valueChanges()
       .subscribe(response => {
         this.movies = response;
-        console.log(this.movies)
       })
   }
 
