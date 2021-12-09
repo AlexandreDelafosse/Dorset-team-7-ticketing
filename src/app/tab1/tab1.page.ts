@@ -21,12 +21,13 @@ export class Tab1Page {
   constructor(public firestore: AngularFirestore, private resumeService: ResumeService) {
 
     this.onGetMovies()
+    this.hideBar()
     this.item_adult_qty = 0;
     this.item_qty = 0;
     this.item_child_qty = 0;
     this.price = 0;
     this.isFamilyPromotion = false;
-    this.hideBar()
+
   }
 
   // Hide the ionic tab bar

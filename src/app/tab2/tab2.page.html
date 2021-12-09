@@ -14,11 +14,7 @@
   </ion-header>
 
   <ion-row id="sitInfo">
-    <!-- <p *ngFor="let movie of reservation">
-      <span *ngFor="let mov of movie.sit">{{mov}} | </span>
-    </p> -->
     <p>Sit take : {{nbSitTaken}} | Have to take : {{sitHaveToTake}}<br></p>
-    <p>Sit take (number) : <span *ngFor='let number of selectSit'> {{number}} |</span></p>
   </ion-row>
   <ion-row>
     <ion-col class="letterstop">
@@ -107,7 +103,7 @@
 
   <ion-row>
     <ion-tab-button tab="tab3">
-      <ion-button>Confirm your seats please</ion-button>
+      <ion-button *ngIf="isAllSeatTake">Confirm your seats please</ion-button>
     </ion-tab-button>
   </ion-row>
 

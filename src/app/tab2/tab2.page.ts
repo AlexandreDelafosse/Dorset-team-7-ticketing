@@ -20,16 +20,18 @@ export class Tab2Page {
   maxNbSitTaken: number;
   sitHaveToTake: number;
   resume: any[]
+  isAllSeatTake: boolean
 
   constructor(public firestore: AngularFirestore, private resumeService: ResumeService) {
 
     this.getAllInfo()
     this.checkTaken()
+    this.hideBar()
     this.hundred = [1,2,3,4,5,6,7,8,9,10]
     this.nbSitTaken = 0
     this.selectSit = []
     this.sitHaveToTake = this.maxNbSitTaken
-    this.hideBar()
+    this.isAllSeatTake = false
   }
 
   // Hide the ionic tab bar
@@ -73,12 +75,14 @@ export class Tab2Page {
   // Toggle the class of the seat selected
   // Get the sit selected
   // Actualize the data in the service
+  // Check if all the sit are taken
   toggleClassTest(i) {
     if($("." + i).attr('class') === i + " buttonseat" && this.nbSitTaken < this.maxNbSitTaken) {
       this.nbSitTaken += 1
       this.selectSit.push(i)
       this.actualizeService()
       this.sitHaveToTake = this.maxNbSitTaken - this.selectSit.length
+      this.checkAllSitTake()
       $("." + i).removeClass('buttonseat').addClass('selected')
     } else if ($("." + i).attr('class') === i + " selected" && this.nbSitTaken >= 0) {
       this.nbSitTaken -= 1
@@ -86,8 +90,18 @@ export class Tab2Page {
       this.selectSit = this.selectSit.filter(function(f) { return f !== i })
       this.actualizeService()
       this.sitHaveToTake = this.maxNbSitTaken - this.selectSit.length
+      this.checkAllSitTake()
     } else {
       console.log('no')
+    }
+  }
+
+  // Check if all the sit are taken for show the button continue
+  checkAllSitTake(){
+    if(this.sitHaveToTake === 0) {
+      this.isAllSeatTake = true
+    } else {
+      this.isAllSeatTake = false
     }
   }
 

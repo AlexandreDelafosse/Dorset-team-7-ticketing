@@ -22,8 +22,6 @@ export class ResumeService {
       email: "email@email.com"
     }]
 
-
-
   }
 
   // Return all the info from resume
