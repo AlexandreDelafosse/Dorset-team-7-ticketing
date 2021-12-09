@@ -22,6 +22,7 @@ export class Tab3Page {
     this.getAllInfo()
   }
 
+  // Alert for the success booked
   public async presentAlert() {
     const alert = document.createElement('ion-alert');
     alert.cssClass = 'my-custom-class';
@@ -40,6 +41,8 @@ export class Tab3Page {
 
   }
 
+  // Get all the info from the service
+  // The info from the two components before
   getAllInfo() {
     this.resume = this.resumeService.getAll();
     console.log(this.resume)
@@ -49,6 +52,7 @@ export class Tab3Page {
     this.place = this.resume[0].sitTaken
   }
 
+  // Send all the service info to the database
   addInfo(){
     this.resumeService.addFirstName(this.firstName)
     this.resumeService.addLastName(this.lastName)
