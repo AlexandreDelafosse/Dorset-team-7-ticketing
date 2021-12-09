@@ -39,15 +39,16 @@ export class ResumeService {
     return this.resume[0].movie
   }
 
+  // Change the data of the hour
+  addHour(e) {
+    this.resume[0].hour = e
+  }
+
   // Get the hour
   getHour() {
     return this.resume[0].hour
   }
 
-  // Change the data of the hour
-  addHour(e) {
-    this.resume[0].hour = e
-  }
   // Change the data of the price
   addPrice(e) {
     this.resume[0].price = e
