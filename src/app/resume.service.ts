@@ -34,6 +34,16 @@ export class ResumeService {
     this.resume[0].movie = e
   }
 
+  // Get the movie
+  getMovie() {
+    return this.resume[0].movie
+  }
+
+  // Get the hour
+  getHour() {
+    return this.resume[0].hour
+  }
+
   // Change the data of the hour
   addHour(e) {
     this.resume[0].hour = e
@@ -70,10 +80,6 @@ export class ResumeService {
 
   // Get all the reservation in the database
   allReservation() {
-    this.firestore.collection('reservation').valueChanges()
-      .subscribe(response => {
-        this.reservation = response;
-        console.log(this.reservation)
-      })
+
   }
 }

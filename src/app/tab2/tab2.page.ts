@@ -11,7 +11,7 @@ import { ResumeService } from '../resume.service';
 export class Tab2Page {
 
   public sitTaken: number[];
-  public reservation: any[];
+  public reservation: any;
   selectMovie: string;
   selecthour: string;
   selectSit: number[];
@@ -19,14 +19,14 @@ export class Tab2Page {
   nbSitTaken: number;
   maxNbSitTaken: number;
   sitHaveToTake: number;
-  resume: any[]
+  resume: any;
   isAllSeatTake: boolean
 
   constructor(public firestore: AngularFirestore, private resumeService: ResumeService) {
 
     this.getAllInfo()
-    this.checkTaken()
     this.hideBar()
+    this.sitTake()
     this.hundred = [1,2,3,4,5,6,7,8,9,10]
     this.nbSitTaken = 0
     this.selectSit = []
@@ -43,33 +43,7 @@ export class Tab2Page {
   // The info from the components before
   getAllInfo() {
     this.resume = this.resumeService.getAll();
-    console.log(this.resume[0].nbSitTaken)
     this.maxNbSitTaken = this.resume[0].nbSitTaken
-  }
-
-  // Get the seat already booked
-  checkTaken(){
-    this.firestore.collection('reservation')
-      .valueChanges()
-      .subscribe(response => {
-        this.reservation = response;
-        console.log(this.reservation)
-      })
-
-    // setTimeout(() => {
-    //   this.reservation.forEach(movie => {
-    //     // if(movie.movie === "E.T" && movie.hour === "10:30") {
-    //     //   movie.sit.forEach(sit => {
-    //     //     this.sitTaken.push(sit)
-    //     //   });
-    //     // }
-
-    //     movie.sit.forEach(element => {
-
-    //     });
-    //   });
-    // }, 3000);
-
   }
 
   // Toggle the class of the seat selected
@@ -108,6 +82,21 @@ export class Tab2Page {
   // Update the data for the sit taken in the service
   actualizeService() {
     this.resumeService.addSitTaken(this.selectSit)
+  }
+
+  // Check the sit already taken for this movie and this hour
+  sitTake() {
+    this.firestore.collection('reservation').valueChanges()
+      .subscribe(response => {
+        this.reservation = response;
+        this.reservation.forEach(e => {
+          if(e.movie === this.resumeService.getMovie() && e.hour === this.resumeService.getHour()) {
+            e.sitTaken.forEach(i => {
+              $("." + i).attr('disabled', true).removeClass('buttonseat').addClass('taken')
+            });
+          }
+        });
+      })
   }
 
 }
